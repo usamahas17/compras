@@ -8,6 +8,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -31,7 +32,8 @@ public class formulario extends AppCompatActivity {
     }
     public void otro(View i) {
         Intent mas = new Intent(getApplicationContext(), reciclar.class);
-        mas.putExtra("listadefinitiva",agro);
+        mas.putExtra("listarecibida", agro);
+        //mas.putExtra("listadefinitiva",agro);
         startActivity(mas);
     }
 
@@ -41,6 +43,10 @@ public class formulario extends AppCompatActivity {
         verdurita.setText("");
         carnecita.setText("");
         cositas.setText("");
+
+        for(listadecompras L : agro.lista){
+            Toast.makeText(getApplicationContext(), "verdura: "+L.getVerdura()+" carne: "+L.getCarne()+" abarrotes: "+L.getAbarrotes(), Toast.LENGTH_SHORT).show();
+        }
 
     }
 
